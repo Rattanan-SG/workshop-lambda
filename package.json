@@ -1,0 +1,32 @@
+{
+  "name": "workshop-lambda",
+  "version": "1.0.0",
+  "description": "workshop-lambda-node-restapi-mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon -L src/index.js",
+    "serverless:local": "serverless offline start",
+    "serverless:build": "serverless package",
+    "serverless:deploy": "serverless deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "mongoose": "^5.8.11",
+    "morgan": "^1.9.1",
+    "serverless-http": "^2.3.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "serverless-dotenv-plugin": "^2.3.1",
+    "serverless-offline": "^5.12.1"
+  }
+}

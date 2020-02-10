@@ -1,0 +1,26 @@
+org: sanguoomega13440
+app: workshop-lambda
+service: workshop-lambda
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: staging
+  region: ap-southeast-1
+
+functions:
+  app:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{any+}
+          method: ANY
+          cors: true
