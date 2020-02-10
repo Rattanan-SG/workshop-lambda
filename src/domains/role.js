@@ -5,9 +5,9 @@ exports.create = body => {
   return role.save();
 };
 
-exports.findAll = (where, fields, options) => Role.find(where, fields, options).lean();
+exports.findAll = (where, fields, options) => Role.find(where, fields, options);
 
-exports.findByPk = (id, fields, options) => Role.findById(id, fields, options).lean();
+exports.findByPk = (id, fields, options) => Role.findById(id, fields, options);
 
 exports.updateByPk = (id, body, options) => Role.findByIdAndUpdate(id, body, options);
 

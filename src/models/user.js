@@ -16,8 +16,11 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.pre('find', function() {
-  this.populate('role');
-});
+// userSchema.pre('find', function() {
+//   this.populate({
+//     path: 'role',
+//     populate: { path: 'children', model: 'children' }
+//   });
+// });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.models.User || mongoose.model('User', userSchema);

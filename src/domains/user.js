@@ -5,9 +5,17 @@ exports.create = body => {
   return user.save();
 };
 
-exports.findAll = (where, fields, options) => User.find(where, fields, options).lean();
+exports.findAll = (where, fields, options) =>
+  User.find(where, fields, options).populate({
+    path: 'role',
+    select: 'permissions',
+    populate: {
+      path: 'children',
+      select: 'permissions'
+    }
+  });
 
-exports.findByPk = (id, fields, options) => User.findById(id, fields, options).lean();
+exports.findByPk = (id, fields, options) => User.findById(id, fields, options);
 
 exports.updateByPk = (id, body, options) => User.findByIdAndUpdate(id, body, options);
 
