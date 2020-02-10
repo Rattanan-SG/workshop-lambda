@@ -1,24 +1,24 @@
-require("dotenv").config();
+require('dotenv').config();
 
 const { env } = process;
-const state = env.NODE_ENV || "development";
+const state = env.NODE_ENV || 'development';
 
 const config = {
   development: {
-    config_id: "development",
-    mongo_url: env.MONGO_URL || "mongodb://mongodb/test",
+    config_id: 'development',
+    mongo_url: env.MONGO_URL || 'mongodb://mongodb/workshop'
   },
   testing: {
-    config_id: "testing",
-    mongo_url: env.MONGO_URL || "mongodb://mongodb/test",
+    config_id: 'testing',
+    mongo_url: env.MONGO_URL || 'mongodb://mongodb/workshop'
   },
   staging: {
-    config_id: "staging",
-    mongo_url: env.MONGO_URL,
+    config_id: 'staging',
+    mongo_url: env.MONGO_URL
   },
   production: {
-    config_id: "production",
-    mongo_url: env.MONGO_URL,
+    config_id: 'production',
+    mongo_url: env.MONGO_URL
   }
 };
 

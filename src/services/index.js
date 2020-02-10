@@ -1,30 +1,7 @@
-const subscription = require("../domains/subscription");
-const { logInfo } = require("../utils/logger");
+const User = require('./user');
+const Role = require('./role');
 
-exports.subscribe = body => subscription.create(body);
-
-exports.getSubscription = query => {
-  const { fields, ...where } = query;
-  return subscription.findAll(where, fields);
+module.exports = {
+  User,
+  Role
 };
-
-exports.updateOrCreateSubscription = body =>
-  subscription.updateOne({ endpoint: body.endpoint }, body, { upsert: true });
-
-exports.unsubscribe = endpoint => subscription.deleteOne({ endpoint });
-
-exports.getSubscriptionThatUidisNull = () =>
-  subscription.findAll({ uid: null });
-
-exports.getSubscriptionById = id => subscription.findByPk(id);
-
-exports.renewSubscription = (oldSubscription, newSubscription) =>
-  subscription.updateOne(
-    { endpoint: oldSubscription.endpoint },
-    newSubscription
-  );
-
-exports.updateSubscriptionById = (id, body) =>
-  subscription.updateByPk(id, body, { new: true });
-
-exports.unsubscribeById = id => subscription.deleteByPk(id);

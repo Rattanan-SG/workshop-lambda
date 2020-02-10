@@ -1,27 +1,27 @@
-const express = require("express");
-const api = require("./api");
+const express = require('express');
+const api = require('./api');
 
 const router = express.Router();
 
 const { npm_package_name: service, npm_package_version: version } = process.env;
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.json(`Hello this is ${service}`);
 });
 
-router.get("/health-check", (req, res) => {
+router.get('/health-check', (req, res) => {
   res.json({
-    status: "OK",
+    status: 'OK',
     service,
     version
   });
 });
 
-router.use("/api", api);
+router.use('/api', api);
 
-router.all("*", (req, res) => {
+router.all('*', (req, res) => {
   res.status(404).json({
-    message: "Not Found",
+    message: 'Not Found',
     service,
     version
   });
