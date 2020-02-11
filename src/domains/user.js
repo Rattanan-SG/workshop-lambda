@@ -7,11 +7,11 @@ exports.create = body => {
 
 exports.findAll = (where, fields, options) =>
   User.find(where, fields, options).populate({
-    path: 'role',
+    path: 'role._id',
     select: 'permissions',
     populate: {
-      path: 'children',
-      select: 'permissions'
+      path: 'children._id',
+      select: 'permissions name'
     }
   });
 

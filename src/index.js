@@ -22,4 +22,8 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(route);
 app.use(errorMiddleware);
 
+app.listen(3000, () => {
+  console.info('app listen on port 3000');
+});
+
 module.exports.handler = serverless(app);

@@ -6,7 +6,7 @@ const roleSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    children: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Role' }],
+    children: [{ _id: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' }, name: String }],
     permissions: [String]
   },
   { timestamps: true }
